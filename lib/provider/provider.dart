@@ -8,5 +8,7 @@ final authProvider = ChangeNotifierProvider((ref) {
 });
 
 final todoListProvider = ChangeNotifierProvider((ref) {
-  return TodoListViewModel();
+  final todoListViewModel = TodoListViewModel();
+  todoListViewModel.getAllData();
+  return todoListViewModel;
 });
