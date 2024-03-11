@@ -19,6 +19,11 @@ class TodoListItem extends ConsumerWidget {
       key: UniqueKey(),
       onDismissed: (direction) {
         firestoreProvider.deleteTodo(todoViewModel.todo);
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text("deleted ${todoViewModel.title}"),
+          ),
+        );
       },
       direction: DismissDirection.endToStart,
       background: Container(
