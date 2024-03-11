@@ -13,19 +13,11 @@ class Todo {
   final bool _isDone;
   bool get isDone => _isDone;
 
-  final DateTime _dueDateTime;
-  DateTime get dueDateTime => _dueDateTime;
-
-  final DateTime _createdDateTime;
-  DateTime get createdDateTime => _createdDateTime;
-
   const Todo(
     this._todoId,
     this._title,
     this._description,
     this._isDone,
-    this._dueDateTime,
-    this._createdDateTime,
   );
 
   factory Todo.fromFirestore(DocumentSnapshot<Map<String, dynamic>> snapshot,
@@ -36,8 +28,6 @@ class Todo {
       data?["title"],
       data?["description"],
       data?["isDone"],
-      data?["dueDateTime"],
-      data?["createdDateTime"],
     );
   }
 
@@ -47,8 +37,6 @@ class Todo {
       "title": _title,
       "description": _description,
       "isDone": _isDone,
-      "dueDateTime": _dueDateTime,
-      "createdDateTime": _createdDateTime,
     };
   }
 }
