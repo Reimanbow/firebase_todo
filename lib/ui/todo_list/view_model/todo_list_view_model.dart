@@ -22,6 +22,7 @@ class TodoListViewModel extends ChangeNotifier {
   List<Todo> get todoData => _todoData;
 
   Future<void> getAllData() async {
+    _todoData.clear();
     QuerySnapshot<Todo> snapshot;
     try {
       snapshot = await _model.getAllData();
