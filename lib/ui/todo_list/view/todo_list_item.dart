@@ -42,8 +42,11 @@ class TodoListItem extends ConsumerWidget {
           icon: Icon(todoViewModel.isDone
               ? Icons.check_box_outlined
               : Icons.check_box_outline_blank),
-          // TODO isDoneのトグル
-          onPressed: () {},
+          // isDoneのトグル
+          onPressed: () {
+            todoViewModel.toggleIsDone();
+            firestoreProvider.updateIsDone(todoViewModel.todo);
+          },
         ),
         title: Text(
           todoViewModel.title,

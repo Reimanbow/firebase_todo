@@ -49,4 +49,10 @@ class TodoListViewModel extends ChangeNotifier {
     _todoData.remove(todo);
     notifyListeners();
   }
+
+  Future<void> updateIsDone(Todo todo) async {
+    _todoData[_todoData.indexOf(todo)] = todo;
+    _model.updateIsDone(todo.todoId, todo.isDone);
+    notifyListeners();
+  }
 }
