@@ -35,4 +35,10 @@ class FirestoreModel {
   Future<void> deleteData(String id) async {
     await instance.collection("todo").doc(id).delete();
   }
+
+  Future<void> updateIsDone(String id, bool isDone) async {
+    await instance.collection("todo").doc(id).update({
+      "isDone": isDone,
+    });
+  }
 }

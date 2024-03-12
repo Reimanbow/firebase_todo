@@ -14,4 +14,8 @@ class TodoViewModel {
   String get description => _todo.description;
 
   bool get isDone => _todo.isDone;
+
+  void toggleIsDone() {
+    _todo.toggleIsDone();
+  }
 }

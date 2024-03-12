@@ -10,10 +10,14 @@ class Todo {
   final String _description;
   String get description => _description;
 
-  final bool _isDone;
+  bool _isDone;
   bool get isDone => _isDone;
 
-  const Todo(
+  void toggleIsDone() {
+    _isDone = !_isDone;
+  }
+
+  Todo(
     this._todoId,
     this._title,
     this._description,
