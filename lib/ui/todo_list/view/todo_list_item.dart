@@ -3,6 +3,7 @@ import "package:flutter_riverpod/flutter_riverpod.dart";
 
 import "../view_model/todo_view_model.dart";
 import "../../../provider/provider.dart";
+import "todo_description_page.dart";
 
 class TodoListItem extends ConsumerWidget {
   const TodoListItem({
@@ -41,6 +42,7 @@ class TodoListItem extends ConsumerWidget {
           icon: Icon(todoViewModel.isDone
               ? Icons.check_box_outlined
               : Icons.check_box_outline_blank),
+          // TODO isDoneのトグル
           onPressed: () {},
         ),
         title: Text(
@@ -49,8 +51,18 @@ class TodoListItem extends ConsumerWidget {
             fontSize: 20,
           ),
         ),
-        // TODO タップ後の処理
-        onTap: () {},
+        // タップしたらTodoの詳細を表示する
+        onTap: () async {
+          await Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => TodoDescriptionPage(
+                title: todoViewModel.title,
+                description: todoViewModel.description,
+                isDone: todoViewModel.isDone,
+              ),
+            ),
+          );
+        },
       ),
     );
   }
